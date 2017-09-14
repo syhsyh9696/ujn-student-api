@@ -7,5 +7,11 @@ module API
       expose :stu_id
       expose :stu_tel
     end
+
+    class Error < Grape::Entity
+      expose :code
+      expose :message
+    end
+
   end
 end

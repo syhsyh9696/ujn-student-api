@@ -13,13 +13,11 @@
 ActiveRecord::Schema.define(version: 20170911131200) do
 
   create_table "students", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "stu_name"
-    t.string   "stu_num"
-    t.string   "stu_id"
-    t.string   "stu_gender"
-    t.string   "stu_tel"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "stu_name"
+    t.string "stu_num"
+    t.string "stu_id"
+    t.string "stu_gender"
+    t.string "stu_tel"
   end
 
 end

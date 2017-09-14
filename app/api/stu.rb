@@ -30,6 +30,11 @@ module API
 
         @url = "http://iplat.ujn.edu.cn/photo/#{stu_num[0..3]}/#{stu_num}.jpg"
       end
+
+      def find_num_with_name stu_name
+        @student = Student.where("stu_name = ?", stu_name).first
+        @student.stu_num
+      end
     end
 
 
@@ -73,8 +78,19 @@ module API
         present info, with: API::Entities::Info
       end
 
-      get '/pic/:number' do
-        { :pic => format_stu_num(params[:number]) }
+      namespace :pic do
+        get '/url/:number' do
+          { :pic => format_stu_num(params[:number]) }
+        end
+
+        get '/num/:number' do
+          redirect format_stu_num(params[:number]), permanent: true
+        end
+
+        get '/name/:name' do
+          stu_num = find_num_with_name(params[:name])
+          redirect "../num/#{stu_num}"
+        end
       end
 
     end

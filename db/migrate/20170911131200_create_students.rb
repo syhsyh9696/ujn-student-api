@@ -6,7 +6,6 @@ class CreateStudents < ActiveRecord::Migration[5.0]
       t.string :stu_id
       t.string :stu_gender
       t.string :stu_tel
-      t.timestamps
     end
   end
 end
