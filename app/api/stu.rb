@@ -10,10 +10,10 @@ module API
       hide_documentation_path: true
     )
 
-    
+
     helpers do
       def find_student stu_num
-        stu_num = stu_num.to_s
+        stu_num = stu_num[1..-1] if stu_num.size == 12
         @student = Student.where("stu_num = ?", stu_num)
       end
 
